@@ -4,6 +4,8 @@
     <name>Prayer</name>
     <vendor>shamilov</vendor>
 
+    <description>The plugin makes a reminder about the time of prayer</description>
+
     <depends>com.intellij.modules.platform</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
