@@ -1,4 +1,4 @@
-package com.github.shamillov.prayer
+package com.shamilov.prayer
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls
