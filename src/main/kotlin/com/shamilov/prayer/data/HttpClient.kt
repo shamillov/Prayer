@@ -1,4 +1,4 @@
-package com.shamilov.prayer
+package com.shamilov.prayer.data
 
 import kotlinx.serialization.json.Json
 import okhttp3.Call

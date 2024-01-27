@@ -1,7 +1,7 @@
 package com.shamilov.prayer.data.repository
 
 import com.shamilov.prayer.entity.Countries
-import com.shamilov.prayer.json
+import com.shamilov.prayer.data.json
 import kotlinx.serialization.decodeFromString
 
 /**
