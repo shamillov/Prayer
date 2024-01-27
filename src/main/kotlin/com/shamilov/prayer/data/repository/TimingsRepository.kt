@@ -26,10 +26,6 @@ internal class TimingsRepository {
                     if (it.code == 200) {
                         val timings = TimingsMapper.map(it)
 
-                        val locationStore = LocationStore.instance
-                        locationStore.city = city
-                        locationStore.country = country
-
                         TimingsStore.instance.timings = timings.timingsOfDay
                         TimingsStore.instance.lastLocalDate = timings.date
 

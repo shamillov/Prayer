@@ -3,11 +3,11 @@ package com.shamilov.prayer.scheduler
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.shamilov.prayer.entity.Timing
-import com.shamilov.prayer.entity.Timings
 import com.shamilov.prayer.notification.ReminderNotification
 import com.shamilov.prayer.utils.currentEpochSeconds
 import com.shamilov.prayer.utils.toInstant
 import java.util.concurrent.Executors
+import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
 
 /**
@@ -19,13 +19,19 @@ internal object NotificationsScheduler {
         Executors.newSingleThreadScheduledExecutor()
     }
 
-    fun schedule(timings: Timings) {
+    private val scheduleList = mutableListOf<ScheduledFuture<*>>()
+
+    @Synchronized
+    fun schedule(timings: List<Timing>) {
+        scheduleList.forEach { it.cancel(true) }
+        scheduleList.clear()
+
         val localInstant = currentEpochSeconds.toInstant()
 
-        timings.timingsOfDay
+        timings
             .filter { !it.isExpired() }
             .forEach { timing ->
-                val delay = timing.instant - localInstant
+                val delay = timing.instant!! - localInstant
 
                 val reminder: () -> Unit = {
                     ProjectManager.getInstance().openProjects.forEach { project ->
@@ -33,7 +39,8 @@ internal object NotificationsScheduler {
                     }
                 }
 
-                schedule.schedule(reminder, delay.inWholeMilliseconds, TimeUnit.MILLISECONDS)
+                val future = schedule.schedule(reminder, delay.inWholeMilliseconds, TimeUnit.MILLISECONDS)
+                scheduleList.add(future)
             }
     }
 

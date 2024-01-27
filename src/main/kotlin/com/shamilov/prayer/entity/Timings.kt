@@ -24,10 +24,4 @@ internal data class Timing(
 ) : Serializable {
 
     fun isExpired(): Boolean = currentEpochSeconds.toInstant() > instant!!
-
-    companion object {
-        val EMPTY = Timing(
-            "","", null
-        )
-    }
 }
