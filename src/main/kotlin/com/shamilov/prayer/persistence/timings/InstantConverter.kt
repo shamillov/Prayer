@@ -2,7 +2,6 @@ package com.shamilov.prayer.persistence.timings
 
 import com.intellij.util.xmlb.Converter
 import kotlinx.datetime.Instant
-import kotlinx.datetime.LocalDateTime
 
 /**
  * @author Shamilov on 24.01.2024

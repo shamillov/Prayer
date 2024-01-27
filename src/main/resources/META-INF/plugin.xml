@@ -11,6 +11,17 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="com.shamilov.prayer.Startup"/>
+
+        <applicationService
+                serviceImplementation="com.shamilov.prayer.persistence.location.LocationStoreImpl"/>
+        <applicationService
+                serviceImplementation="com.shamilov.prayer.persistence.timings.TimingsStore"/>
+        <applicationConfigurable
+                parentId="tools"
+                instance="com.shamilov.prayer.config.PrayerConfigurable"
+                id="org.intellij.sdk.settings.AppSettingsConfigurable"
+                displayName="Prayer"/>
     </extensions>
 
 </idea-plugin>
