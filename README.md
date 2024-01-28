@@ -1,8 +1,8 @@
 # Prayer
 
 ![Build](https://github.com/shamillov/Prayer/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/23662-prayer.svg)](https://plugins.jetbrains.com/plugin/23662-prayer)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/23662-prayer.svg)](https://plugins.jetbrains.com/plugin/23662-prayer)
 
 ## Description
 <!-- Plugin description -->
