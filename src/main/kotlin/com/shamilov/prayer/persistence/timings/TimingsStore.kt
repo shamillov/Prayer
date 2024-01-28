@@ -5,6 +5,7 @@ import com.intellij.openapi.components.*
 import com.intellij.util.xmlb.XmlSerializerUtil
 import com.intellij.util.xmlb.annotations.OptionTag
 import com.shamilov.prayer.entity.Timing
+import com.shamilov.prayer.entity.Timings
 import kotlinx.datetime.LocalDate
 
 /**
@@ -21,10 +22,7 @@ internal class TimingsStore : PersistentStateComponent<TimingsStore> {
             get() = ApplicationManager.getApplication().getService(TimingsStore::class.java)
     }
 
-    @OptionTag(converter = LocalDateConverter::class)
-    var lastLocalDate: LocalDate? = null
-
-    var timings: List<Timing> = emptyList()
+    var timings: Timings? = null
 
     override fun getState(): TimingsStore {
         return this
@@ -33,5 +31,4 @@ internal class TimingsStore : PersistentStateComponent<TimingsStore> {
     override fun loadState(value: TimingsStore) {
         XmlSerializerUtil.copyBean(value, this)
     }
-
 }

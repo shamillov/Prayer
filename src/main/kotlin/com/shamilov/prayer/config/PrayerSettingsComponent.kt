@@ -3,7 +3,6 @@ package com.shamilov.prayer.config
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.ui.components.JBLabel
 import com.shamilov.prayer.entity.Countries
-import com.shamilov.prayer.entity.Timing
 import com.shamilov.prayer.entity.Timings
 import org.jdesktop.swingx.VerticalLayout
 import java.awt.FlowLayout
@@ -44,17 +43,17 @@ internal class PrayerSettingsComponent {
 
     fun getComponent(): JComponent = mainComponent
 
-    fun setTimings(timings: List<Timing?>) {
+    fun setTimings(timings: Timings) {
         progressBar.isVisible = false
 
-        if (timings.isNotEmpty()) {
+        if (timings.timingsOfDay.isNotEmpty()) {
             dateLabel.isVisible = true
-            dateLabel.text = "Prayer schedule for today ():"
+            dateLabel.text = "Prayer schedule for today (${timings.date}):"
             timingPanel.removeAll()
 
-            timings.filterNotNull().forEach { timing ->
-                timingPanel.add(JBLabel(timing.name))
-                timingPanel.add(JBLabel(timing.time))
+            timings.timingsOfDay.forEach { timing ->
+                timingPanel.add(JBLabel(timing.name!!))
+                timingPanel.add(JBLabel(timing.time!!))
             }
             timingPanel.updateUI()
         }

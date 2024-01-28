@@ -31,11 +31,11 @@ internal object TimingsMapper {
         val timings = data.timings
         return Timings(
             timingsOfDay = buildList {
-                add(Timing(FAJR, timings.fajr, getInstant(timings.fajr, localDate)))
-                add(Timing(DHUHR, timings.dhuhr, getInstant(timings.dhuhr, localDate)))
-                add(Timing(ASR, timings.asr, getInstant(timings.asr, localDate)))
-                add(Timing(MAGHRIB, timings.maghrib, getInstant(timings.maghrib, localDate)))
-                add(Timing(ISHA, timings.isha, getInstant(timings.isha, localDate)))
+                add(Timing(name = FAJR, time = timings.fajr, instant = getInstant(timings.fajr, localDate)))
+                add(Timing(name = DHUHR, time = timings.dhuhr, instant = getInstant(timings.dhuhr, localDate)))
+                add(Timing(name = ASR, time = timings.asr, instant = getInstant(timings.asr, localDate)))
+                add(Timing(name = MAGHRIB, time = timings.maghrib, instant = getInstant(timings.maghrib, localDate)))
+                add(Timing(name = ISHA, time = timings.isha, instant = getInstant(timings.isha, localDate)))
             },
             date = localDate
         )
