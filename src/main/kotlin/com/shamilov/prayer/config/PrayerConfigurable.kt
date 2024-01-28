@@ -5,7 +5,6 @@ import com.shamilov.prayer.data.repository.CountriesRepository
 import com.shamilov.prayer.data.repository.TimingsRepository
 import com.shamilov.prayer.persistence.location.LocationStore
 import com.shamilov.prayer.persistence.timings.TimingsStore
-import com.shamilov.prayer.scheduler.ReloadTimingsScheduler
 import javax.swing.JComponent
 
 /**
@@ -59,15 +58,13 @@ internal class PrayerConfigurable : Configurable {
         locationStore.city = city
         locationStore.country = country
 
-        ReloadTimingsScheduler.schedule(city, country)
-
         timingsRepository.loadLimits(
             city = component.getCity(),
             country = component.getCountry(),
         ) { result ->
             component.setLoading(false)
             result.onSuccess { timings ->
-                component.setTimings(timings.timingsOfDay)
+                component.setTimings(timings)
             }
         }
     }

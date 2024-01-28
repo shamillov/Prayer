@@ -9,7 +9,6 @@ import com.shamilov.prayer.notification.SetLocationNotification
 import com.shamilov.prayer.persistence.location.LocationStore
 import com.shamilov.prayer.persistence.timings.TimingsStore
 import com.shamilov.prayer.scheduler.NotificationsScheduler
-import com.shamilov.prayer.scheduler.ReloadTimingsScheduler
 import com.shamilov.prayer.utils.localDateTime
 
 /**
@@ -26,15 +25,12 @@ class Startup : StartupActivity {
 
         if (city != null && country != null) {
             val timings = timingsStore.state.timings
-            val lastDate = timingsStore.lastLocalDate
 
-            if (lastDate == localDateTime.date) {
+            if (timings?.date == localDateTime.date) {
                 NotificationsScheduler.schedule(timings)
             } else {
                 TimingsRepository().loadLimits(city, country) {}
             }
-
-            ReloadTimingsScheduler.schedule(city, country)
         } else {
             SetLocationNotification {
                 ShowSettingsUtil.getInstance().editConfigurable(project, PrayerConfigurable())

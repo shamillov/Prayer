@@ -24,4 +24,11 @@
                 displayName="Prayer"/>
     </extensions>
 
+    <applicationListeners>
+        <listener
+                class="com.shamilov.prayer.listeners.ActivationListener"
+                topic="com.intellij.openapi.application.ApplicationActivationListener"
+        />
+    </applicationListeners>
+
 </idea-plugin>

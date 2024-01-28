@@ -1,12 +1,11 @@
 package com.shamilov.prayer.persistence.timings
 
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.components.*
+import com.intellij.openapi.components.PersistentStateComponent
+import com.intellij.openapi.components.State
+import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil
-import com.intellij.util.xmlb.annotations.OptionTag
-import com.shamilov.prayer.entity.Timing
 import com.shamilov.prayer.entity.Timings
-import kotlinx.datetime.LocalDate
 
 /**
  * @author Shamilov on 16.01.2024

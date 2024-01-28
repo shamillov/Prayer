@@ -1,11 +1,8 @@
 package com.shamilov.prayer.data.repository
 
-import com.intellij.openapi.project.ProjectManager
 import com.shamilov.prayer.data.loadTimings
 import com.shamilov.prayer.data.mapper.TimingsMapper
 import com.shamilov.prayer.entity.Timings
-import com.shamilov.prayer.notification.ReminderNotification
-import com.shamilov.prayer.persistence.location.LocationStore
 import com.shamilov.prayer.persistence.timings.TimingsStore
 import com.shamilov.prayer.scheduler.NotificationsScheduler
 import com.shamilov.prayer.utils.getFormattedDate
@@ -26,13 +23,9 @@ internal class TimingsRepository {
                     if (it.code == 200) {
                         val timings = TimingsMapper.map(it)
 
-                        TimingsStore.instance.timings = timings.timingsOfDay
-                        TimingsStore.instance.lastLocalDate = timings.date
+                        TimingsStore.instance.timings = timings
 
-                        NotificationsScheduler.schedule(timings.timingsOfDay)
-                        ProjectManager.getInstance().openProjects.forEach {
-                            ReminderNotification("Loaded ${timings.date}").notify(it)
-                        }
+                        NotificationsScheduler.schedule(timings)
 
                         callback(Result.success(timings))
                     } else {
