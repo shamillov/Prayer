@@ -48,6 +48,6 @@ internal object NotificationsScheduler {
     }
 
     private fun notify(timing: Timing, project: Project) {
-        ReminderNotification("${timing.name} namaz").notify(project)
+        ReminderNotification("${timing.name} namaz ${timing.time}").notify(project)
     }
 }
