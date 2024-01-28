@@ -29,7 +29,7 @@ class Startup : StartupActivity {
             if (timings?.date == localDateTime.date) {
                 NotificationsScheduler.schedule(timings)
             } else {
-                TimingsRepository().loadLimits(city, country) {}
+                TimingsRepository.loadLimits(city, country)
             }
         } else {
             SetLocationNotification {

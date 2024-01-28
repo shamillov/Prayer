@@ -10,9 +10,9 @@ import com.shamilov.prayer.utils.getFormattedDate
 /**
  * @author Shamilov on 16.01.2024
  */
-internal class TimingsRepository {
+internal object TimingsRepository {
 
-    fun loadLimits(city: String, country: String, callback: (Result<Timings>) -> Unit) {
+    fun loadLimits(city: String, country: String, callback: ((Result<Timings>) -> Unit)? = null) {
         loadTimings(
             date = getFormattedDate(),
             city = city,
@@ -27,13 +27,13 @@ internal class TimingsRepository {
 
                         NotificationsScheduler.schedule(timings)
 
-                        callback(Result.success(timings))
+                        callback?.invoke(Result.success(timings))
                     } else {
-                        callback(Result.failure(Throwable(it.status)))
+                        callback?.invoke(Result.failure(Throwable(it.status)))
                     }
                 },
                 onFailure = {
-                    callback(Result.failure(it))
+                    callback?.invoke(Result.failure(it))
                 }
             )
         }

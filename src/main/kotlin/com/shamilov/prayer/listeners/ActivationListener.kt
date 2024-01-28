@@ -26,7 +26,7 @@ class ActivationListener : ApplicationActivationListener {
 
         if (city == null || country == null) return
 
-        TimingsRepository().loadLimits(city, country) {}
+        TimingsRepository.loadLimits(city, country)
     }
 
     private fun isTimingsRelevance(): Boolean {

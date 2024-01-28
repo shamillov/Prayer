@@ -4,6 +4,13 @@
 [![Version](https://img.shields.io/jetbrains/plugin/v/23662-prayer.svg)](https://plugins.jetbrains.com/plugin/23662-prayer)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/23662-prayer.svg)](https://plugins.jetbrains.com/plugin/23662-prayer)
 
+<br />
+<div align="center">
+  <a href="https://github.com/shamillov/Prayer">
+    <img src="src/main/resources/META-INF/pluginIcon.svg" alt="Logo" width="80" height="80">
+  </a>
+</div>
+
 ## Description
 <!-- Plugin description -->
 The plugin makes a reminder about the time of prayer
@@ -21,9 +28,9 @@ The plugin makes a reminder about the time of prayer
   Download the [latest release](https://github.com/shamillov/Prayer/releases/latest) and install it manually using
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
 
+## How to use
 
----
-Plugin based on the [IntelliJ Platform Plugin Template][template].
+After installing plugin you have to choose city and country to get the prayer schedule
 
 [template]: https://github.com/JetBrains/intellij-platform-plugin-template
 [docs:plugin-description]: https://plugins.jetbrains.com/docs/intellij/plugin-user-experience.html#plugin-description-and-presentation
@@ -45,3 +52,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+
+---
+Plugin based on the [IntelliJ Platform Plugin Template][template].

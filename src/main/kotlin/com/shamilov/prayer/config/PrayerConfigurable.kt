@@ -16,7 +16,6 @@ internal class PrayerConfigurable : Configurable {
         const val DISPLAY_NAME = "Prayer"
     }
 
-    private val timingsRepository = TimingsRepository()
     private val countriesRepository = CountriesRepository()
     private val locationStore = LocationStore.instance
 
@@ -58,7 +57,7 @@ internal class PrayerConfigurable : Configurable {
         locationStore.city = city
         locationStore.country = country
 
-        timingsRepository.loadLimits(
+        TimingsRepository.loadLimits(
             city = component.getCity(),
             country = component.getCountry(),
         ) { result ->

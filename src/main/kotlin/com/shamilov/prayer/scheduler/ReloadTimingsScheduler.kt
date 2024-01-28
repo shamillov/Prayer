@@ -23,8 +23,9 @@ object ReloadTimingsScheduler {
             isScheduled = true
 
             val reminder = {
-                TimingsRepository().loadLimits(city, country) {}
+                TimingsRepository.loadLimits(city, country)
             }
+
             val delay = localDateTime.date
                 .plus(1, DateTimeUnit.DAY)
                 .atTime(0,1)
