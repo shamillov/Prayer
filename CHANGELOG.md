@@ -8,7 +8,7 @@
 
 ### Added
 
-- Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
+ - added basic functionality
 
 [Unreleased]: https://github.com/shamillov/Prayer/compare/v0.0.1...HEAD
 [0.0.1]: https://github.com/shamillov/Prayer/commits/v0.0.1

@@ -32,6 +32,8 @@ The plugin makes a reminder about the time of prayer
 
 After installing plugin you have to choose city and country to get the prayer schedule
 
+-   <kbd>Settings/Preferences</kbd> > <kbd>Tools</kbd> > <kbd>Prayer</kbd>
+
 [template]: https://github.com/JetBrains/intellij-platform-plugin-template
 [docs:plugin-description]: https://plugins.jetbrains.com/docs/intellij/plugin-user-experience.html#plugin-description-and-presentation
 
