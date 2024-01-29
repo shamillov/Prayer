@@ -1,11 +1,11 @@
 # Prayer
 
 ![Build](https://github.com/shamillov/Prayer/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/23662-prayer.svg)](https://plugins.jetbrains.com/plugin/23662-prayer)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/23662-prayer.svg)](https://plugins.jetbrains.com/plugin/23662-prayer)
+[![Version](https://img.shields.io/jetbrains/plugin/v/23663-prayer.svg)](https://plugins.jetbrains.com/plugin/23663-prayer)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/23663-prayer.svg)](https://plugins.jetbrains.com/plugin/23663-prayer)
 
 <br />
-<div align="center">
+<div>
   <a href="https://github.com/shamillov/Prayer">
     <img src="src/main/resources/META-INF/pluginIcon.svg" alt="Logo" width="80" height="80">
   </a>
@@ -30,12 +30,15 @@ The plugin makes a reminder about the time of prayer
 
 ## How to use
 
-After installing plugin you have to choose city and country to get the prayer schedule
+After installing plugin you have to choose city and country to get the prayer schedule:
 
 -   <kbd>Settings/Preferences</kbd> > <kbd>Tools</kbd> > <kbd>Prayer</kbd>
 
-[template]: https://github.com/JetBrains/intellij-platform-plugin-template
-[docs:plugin-description]: https://plugins.jetbrains.com/docs/intellij/plugin-user-experience.html#plugin-description-and-presentation
+<img src="https://github.com/shamillov/Prayer/assets/45718645/b3b27527-52bc-46e7-ba94-53c1c7f4f4f5" alt="Image Description" width="500"/>
+
+And get notifications:
+
+<img src="https://github.com/shamillov/Prayer/assets/45718645/7fdaa439-918b-465d-9e42-80079a016b34" alt="Image Description" width="300"/>
 
 ## License
 
@@ -57,3 +60,6 @@ limitations under the License.
 
 ---
 Plugin based on the [IntelliJ Platform Plugin Template][template].
+
+[template]: https://github.com/JetBrains/intellij-platform-plugin-template
+[docs:plugin-description]: https://plugins.jetbrains.com/docs/intellij/plugin-user-experience.html#plugin-description-and-presentation
