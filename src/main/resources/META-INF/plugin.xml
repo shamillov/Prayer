@@ -2,7 +2,7 @@
 <idea-plugin>
     <id>com.shamilov.prayer</id>
     <name>Prayer</name>
-    <vendor>shamilov</vendor>
+    <vendor>sshamillov@gmail.com</vendor>
 
     <description>The plugin makes a reminder about the time of prayer</description>
 

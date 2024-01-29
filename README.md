@@ -19,10 +19,10 @@ The plugin makes a reminder about the time of prayer
 ## Installation
 
 - Using the IDE built-in plugin system:
-  
+
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "Prayer"</kbd> >
   <kbd>Install</kbd>
-  
+
 - Manually:
 
   Download the [latest release](https://github.com/shamillov/Prayer/releases/latest) and install it manually using
