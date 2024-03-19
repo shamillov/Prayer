@@ -15,6 +15,8 @@
                 serviceImplementation="com.shamilov.prayer.persistence.location.LocationStoreImpl"/>
         <applicationService
                 serviceImplementation="com.shamilov.prayer.persistence.timings.TimingsStore"/>
+        <applicationService
+                serviceImplementation="com.shamilov.prayer.persistence.preferences.PreferencesStoreImpl"/>
         <applicationConfigurable
                 parentId="tools"
                 instance="com.shamilov.prayer.config.PrayerConfigurable"
