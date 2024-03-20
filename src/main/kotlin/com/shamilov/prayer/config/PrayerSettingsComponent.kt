@@ -18,6 +18,7 @@ internal class PrayerSettingsComponent {
     private val mainComponent = JPanel()
     private val settingsPanel = JPanel()
     private val timingPanel = JPanel()
+    private val soundSettingsPanel = JPanel()
     private val cityTextField = JTextField(10)
     private val countriesComboBox = ComboBox<String>()
     private val progressBar = JProgressBar().apply {
@@ -28,13 +29,18 @@ internal class PrayerSettingsComponent {
         font = Font("Date", Font.PLAIN, 14)
     }
 
+    private val openingSoundCheckbox = JCheckBox("Play the Bismillah when IDEA is opened")
+    private val notificationSoundCheckbox = JCheckBox("Play Bismillah when notification is received")
+
     init {
         configureSettingsPanel()
         configureTimingPanel()
+        configureSoundSettingsPanel()
 
         mainComponent.apply {
             layout = VerticalLayout(20)
             add(settingsPanel)
+            add(soundSettingsPanel)
             add(progressBar)
             add(dateLabel)
             add(timingPanel)
@@ -65,9 +71,16 @@ internal class PrayerSettingsComponent {
         }
     }
 
-    fun reset(city: String?, country: String?) {
+    fun reset(
+        city: String?,
+        country: String?,
+        openingSoundEnabled: Boolean,
+        notificationSoundEnabled: Boolean,
+    ) {
         cityTextField.text = city
         countriesComboBox.selectedItem = country
+        openingSoundCheckbox.isSelected = openingSoundEnabled
+        notificationSoundCheckbox.isSelected = notificationSoundEnabled
     }
 
     fun setLoading(visible: Boolean) {
@@ -86,6 +99,18 @@ internal class PrayerSettingsComponent {
         countriesComboBox.item = country
     }
 
+    fun getOpeningSoundEnabled(): Boolean = openingSoundCheckbox.isSelected
+
+    fun setOpeningSoundEnabled(enabled: Boolean) {
+        openingSoundCheckbox.isSelected = enabled
+    }
+
+    fun getNotificationSoundEnabled(): Boolean = notificationSoundCheckbox.isSelected
+
+    fun setNotificationSoundEnabled(enabled: Boolean) {
+        notificationSoundCheckbox.isSelected = enabled
+    }
+
     private fun configureSettingsPanel() = with(settingsPanel) {
         layout = FlowLayout(FlowLayout.LEADING, 10, 10)
 
@@ -98,5 +123,11 @@ internal class PrayerSettingsComponent {
     private fun configureTimingPanel() {
         timingPanel.add(Box.createVerticalStrut(10))
         timingPanel.layout = GridLayout(5, 2, 0, 20)
+    }
+
+    private fun configureSoundSettingsPanel() {
+        soundSettingsPanel.layout = VerticalLayout(10)
+        soundSettingsPanel.add(openingSoundCheckbox)
+        soundSettingsPanel.add(notificationSoundCheckbox)
     }
 }

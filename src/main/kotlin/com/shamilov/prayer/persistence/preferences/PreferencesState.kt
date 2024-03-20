@@ -7,5 +7,5 @@ import com.intellij.openapi.components.BaseState
  */
 internal class PreferencesState : BaseState() {
     var openingSoundEnabled: Boolean by property(false)
-    var notificationSoundEnabled: Boolean by property(false)
+    var notificationSoundEnabled: Boolean by property(true)
 }
