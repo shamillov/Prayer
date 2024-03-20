@@ -4,6 +4,7 @@ import com.intellij.openapi.options.Configurable
 import com.shamilov.prayer.data.repository.CountriesRepository
 import com.shamilov.prayer.data.repository.TimingsRepository
 import com.shamilov.prayer.persistence.location.LocationStore
+import com.shamilov.prayer.persistence.preferences.PreferencesStore
 import com.shamilov.prayer.persistence.timings.TimingsStore
 import javax.swing.JComponent
 
@@ -17,7 +18,9 @@ internal class PrayerConfigurable : Configurable {
     }
 
     private val countriesRepository = CountriesRepository()
+
     private val locationStore = LocationStore.instance
+    private val preferencesStore = PreferencesStore.instance
 
     private val component = PrayerSettingsComponent()
 
@@ -25,6 +28,9 @@ internal class PrayerConfigurable : Configurable {
         component.setCountries(countriesRepository.getCountries())
         component.setCity(locationStore.city)
         component.setCountry(locationStore.country)
+        component.setOpeningSoundEnabled(preferencesStore.openingSoundEnabled)
+        component.setNotificationSoundEnabled(preferencesStore.notificationSoundEnabled)
+
         TimingsStore.instance.state.timings?.let {
             component.setTimings(it)
         }
@@ -38,13 +44,17 @@ internal class PrayerConfigurable : Configurable {
         val city = locationStore.city.orEmpty()
         val country = locationStore.country.orEmpty()
 
-        return component.getCity()!= city || component.getCountry() != country
+        return component.getCity() != city || component.getCountry() != country
+                || component.getOpeningSoundEnabled() != preferencesStore.openingSoundEnabled
+                || component.getNotificationSoundEnabled() != preferencesStore.notificationSoundEnabled
     }
 
     override fun reset() {
         component.reset(
             locationStore.city,
-            locationStore.country
+            locationStore.country,
+            preferencesStore.openingSoundEnabled,
+            preferencesStore.notificationSoundEnabled
         )
     }
 
@@ -66,6 +76,9 @@ internal class PrayerConfigurable : Configurable {
                 component.setTimings(timings)
             }
         }
+
+        preferencesStore.openingSoundEnabled = component.getOpeningSoundEnabled()
+        preferencesStore.notificationSoundEnabled = component.getNotificationSoundEnabled()
     }
 
     override fun getDisplayName(): String {

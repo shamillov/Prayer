@@ -3,6 +3,7 @@
 ![Build](https://github.com/shamillov/Prayer/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/23663-prayer.svg)](https://plugins.jetbrains.com/plugin/23663-prayer)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/23663-prayer.svg)](https://plugins.jetbrains.com/plugin/23663-prayer)
+![Rating](https://img.shields.io/jetbrains/plugin/r/rating/23663-prayer)
 
 <br />
 <div>

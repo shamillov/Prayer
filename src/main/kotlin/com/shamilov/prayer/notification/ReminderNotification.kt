@@ -2,6 +2,7 @@ package com.shamilov.prayer.notification
 
 import com.intellij.notification.Notification
 import com.intellij.notification.NotificationType
+import com.shamilov.prayer.persistence.preferences.PreferencesStore
 
 /**
  * @author Shamilov on 16.01.2024
@@ -17,4 +18,10 @@ internal class ReminderNotification(
     NOTIFICATION_TITLE,
     content,
     NotificationType.INFORMATION,
-)
+) {
+    init {
+        if (PreferencesStore.instance.notificationSoundEnabled) {
+            SoundPlayer.play()
+        }
+    }
+}
